@@ -1,0 +1,7 @@
+eda.ipynb
+*.pyc
+**__pycache__
+**data
+*.ipynb_checkpoints
+**database
+**logs

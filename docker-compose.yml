@@ -1,0 +1,37 @@
+version: "3.8"
+
+services:
+
+  pgenem:
+    build:
+      dockerfile: ./docker/pgenem.dockerfile
+      context: .
+    image: julioszeferino/pgenem:v1
+    container_name: pgenem
+    ports:
+      - "5432:5432"
+    networks:
+      - crawler_network
+    volumes:
+      - pgenem:/var/lib/postgresql/data
+
+  crawler_app:
+    build:
+      dockerfile: ./docker/crawler_app.dockerfile
+      context: .
+    image: julioszeferino/crawler_app:v1
+    container_name: crawler_app
+    networks:
+      - crawler_network
+    volumes:
+      - ./logs:/var/www/crawler/logs
+    depends_on:
+      - pgenem
+
+networks:
+  crawler_network:
+    driver: bridge
+
+volumes:
+  pgenem:
+
