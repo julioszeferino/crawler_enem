@@ -27,6 +27,12 @@ Execute o comando a seguir para subir o banco de dados e realizar uma carga do c
 ```bash
 $ docker-compose up -d
 ```
+
+## SSL
+Para que seja possivel extrair os dados do site do inep e necessario apontar os certificados referentes ao dominio onde os dados serao requisitados.
+
+Todos os certificados devem ser copiados para o arquivo `cert_inep.pem`.
+
 ## Referencias
 - [Dask DataFrame](https://docs.dask.org/en/stable/)
 - [Pandas](https://pandas.pydata.org/docs/user_guide/index.html)
