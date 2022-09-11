@@ -10,5 +10,5 @@ def logs(*args) -> None:
     '''
     print(f'{datetime.now().strftime("%d/%m/%Y %H:%M:%S")} - {args}')
     
-    with open(PATH + '/logs/logs.txt', 'a') as f:
+    with open(PATH + '/logs/logs.log', 'a') as f:
         f.write(f'\n{datetime.now().strftime("%d/%m/%Y %H:%M:%S")} - {args}')
